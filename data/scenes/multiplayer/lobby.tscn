@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://data/themes/ez-menu/ez_menu.tres" type="Theme" id=1]
 [ext_resource path="res://src/multiplayer/lobby-ui.gd" type="Script" id=2]
 [ext_resource path="res://data/fonts/Medieval Sharp/MedievalSharp.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://data/themes/3rd-panel/3rd-panel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://data/themes/3rd-panel/3rd-panel-background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://data/themes/3rd-panel/3rd-panel-frame.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 9.0
+content_margin_right = 9.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+draw_center = false
 
 [sub_resource type="DynamicFont" id=1]
 size = 84
@@ -35,30 +43,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="header" type="PanelContainer" parent="vbc"]
-margin_left = 829.0
-margin_top = 54.0
-margin_right = 1041.0
-margin_bottom = 123.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.21
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="3rd-panel2" parent="vbc/header" instance=ExtResource( 4 )]
+[node name="header" parent="vbc" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 212.0
-margin_bottom = 69.0
+margin_left = 828.0
+margin_top = 221.0
+margin_right = 1042.0
+margin_bottom = 292.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="content" type="PanelContainer" parent="vbc/header"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 213.0
+margin_bottom = 70.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="3rd-frame" parent="vbc/header" instance=ExtResource( 5 )]
+margin_right = 213.0
+margin_bottom = 70.0
 
 [node name="vbox" type="VBoxContainer" parent="vbc/header"]
-margin_right = 212.0
-margin_bottom = 69.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 213.0
+margin_bottom = 70.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="title" type="Label" parent="vbc/header/vbox"]
 margin_right = 212.0
@@ -96,7 +113,7 @@ size_flags_stretch_ratio = 3.0
 placeholder_text = "Enter player's name"
 
 [node name="hbc" type="HBoxContainer" parent="vbc"]
-margin_top = 182.0
+margin_top = 518.0
 margin_right = 1871.0
 margin_bottom = 1032.0
 size_flags_horizontal = 3
@@ -106,8 +123,8 @@ __meta__ = {
 }
 
 [node name="lobby" type="PanelContainer" parent="vbc/hbc"]
-margin_right = 1244.0
-margin_bottom = 850.0
+margin_right = 933.0
+margin_bottom = 514.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -118,13 +135,13 @@ __meta__ = {
 wait_time = 10.0
 
 [node name="scroll" type="ScrollContainer" parent="vbc/hbc/lobby"]
-margin_right = 1244.0
-margin_bottom = 850.0
+margin_right = 933.0
+margin_bottom = 514.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 
 [node name="grid" type="GridContainer" parent="vbc/hbc/lobby/scroll"]
-margin_right = 1244.0
+margin_right = 933.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -140,63 +157,56 @@ size_flags_vertical = 0
 text = "Hostname"
 
 [node name="port" type="Label" parent="vbc/hbc/lobby/scroll/grid"]
-margin_left = 258.0
-margin_right = 284.0
+margin_left = 196.0
+margin_right = 222.0
 margin_bottom = 22.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 text = "Port"
 
 [node name="players" type="Label" parent="vbc/hbc/lobby/scroll/grid"]
-margin_left = 516.0
-margin_right = 560.0
+margin_left = 392.0
+margin_right = 436.0
 margin_bottom = 22.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 text = "Players"
 
 [node name="max_players" type="Label" parent="vbc/hbc/lobby/scroll/grid"]
-margin_left = 774.0
-margin_right = 846.0
+margin_left = 588.0
+margin_right = 660.0
 margin_bottom = 22.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 text = "Max players"
 
 [node name="refresh" type="Button" parent="vbc/hbc/lobby/scroll/grid"]
-margin_left = 1032.0
-margin_right = 1092.0
+margin_left = 784.0
+margin_right = 844.0
 margin_bottom = 28.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 text = "Refresh"
 
-[node name="direct" type="PanelContainer" parent="vbc/hbc"]
-margin_left = 1248.0
-margin_right = 1871.0
-margin_bottom = 850.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="3rd-panel" parent="vbc/hbc/direct" instance=ExtResource( 4 )]
+[node name="direct" parent="vbc/hbc" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 623.0
-margin_bottom = 850.0
+margin_left = 937.0
+margin_right = 1871.0
+margin_bottom = 514.0
+rect_pivot_offset = Vector2( -349, 74.691 )
 
 [node name="vbox" type="VBoxContainer" parent="vbc/hbc/direct"]
-margin_right = 623.0
-margin_bottom = 850.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 933.0
+margin_bottom = 513.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
 
 [node name="title" type="Label" parent="vbc/hbc/direct/vbox"]
-margin_right = 623.0
+margin_right = 932.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -204,15 +214,15 @@ text = "Direct Connection"
 align = 1
 
 [node name="client" type="VBoxContainer" parent="vbc/hbc/direct/vbox"]
-margin_top = 283.0
-margin_right = 623.0
-margin_bottom = 447.0
+margin_top = 124.0
+margin_right = 932.0
+margin_bottom = 288.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="vbc/hbc/direct/vbox/client"]
-margin_right = 623.0
+margin_right = 932.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -221,7 +231,7 @@ align = 1
 
 [node name="input" type="GridContainer" parent="vbc/hbc/direct/vbox/client"]
 margin_top = 42.0
-margin_right = 623.0
+margin_right = 932.0
 margin_bottom = 116.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -230,7 +240,7 @@ custom_constants/hseparation = 10
 columns = 2
 
 [node name="host-label" type="Label" parent="vbc/hbc/direct/vbox/client/input"]
-margin_right = 306.0
+margin_right = 461.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -238,8 +248,8 @@ text = "Host: "
 align = 2
 
 [node name="host" type="LineEdit" parent="vbc/hbc/direct/vbox/client/input"]
-margin_left = 316.0
-margin_right = 622.0
+margin_left = 471.0
+margin_right = 932.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -247,7 +257,7 @@ placeholder_text = "IP address or hostname"
 
 [node name="port-label" type="Label" parent="vbc/hbc/direct/vbox/client/input"]
 margin_top = 42.0
-margin_right = 306.0
+margin_right = 461.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -255,9 +265,9 @@ text = "UDP port: "
 align = 2
 
 [node name="port" type="LineEdit" parent="vbc/hbc/direct/vbox/client/input"]
-margin_left = 316.0
+margin_left = 471.0
 margin_top = 42.0
-margin_right = 622.0
+margin_right = 932.0
 margin_bottom = 74.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -268,22 +278,22 @@ placeholder_text = "UDP port"
 
 [node name="connect" type="Button" parent="vbc/hbc/direct/vbox/client"]
 margin_top = 136.0
-margin_right = 623.0
+margin_right = 932.0
 margin_bottom = 164.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 text = "Connect"
 
 [node name="server" type="VBoxContainer" parent="vbc/hbc/direct/vbox"]
-margin_top = 566.0
-margin_right = 623.0
-margin_bottom = 790.0
+margin_top = 288.0
+margin_right = 932.0
+margin_bottom = 512.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="vbc/hbc/direct/vbox/server"]
-margin_right = 623.0
+margin_right = 932.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -292,7 +302,7 @@ align = 1
 
 [node name="input" type="GridContainer" parent="vbc/hbc/direct/vbox/server"]
 margin_top = 42.0
-margin_right = 623.0
+margin_right = 932.0
 margin_bottom = 116.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -301,7 +311,7 @@ custom_constants/hseparation = 10
 columns = 2
 
 [node name="host-label" type="Label" parent="vbc/hbc/direct/vbox/server/input"]
-margin_right = 306.0
+margin_right = 461.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -309,8 +319,8 @@ text = "Host:"
 align = 2
 
 [node name="host" type="LineEdit" parent="vbc/hbc/direct/vbox/server/input"]
-margin_left = 316.0
-margin_right = 622.0
+margin_left = 471.0
+margin_right = 932.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -318,7 +328,7 @@ placeholder_text = "External address"
 
 [node name="port-label" type="Label" parent="vbc/hbc/direct/vbox/server/input"]
 margin_top = 42.0
-margin_right = 306.0
+margin_right = 461.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -326,9 +336,9 @@ text = "UDP port: "
 align = 2
 
 [node name="port" type="LineEdit" parent="vbc/hbc/direct/vbox/server/input"]
-margin_left = 316.0
+margin_left = 471.0
 margin_top = 42.0
-margin_right = 622.0
+margin_right = 932.0
 margin_bottom = 74.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -339,7 +349,7 @@ placeholder_text = "UDP port"
 
 [node name="announce" type="CheckButton" parent="vbc/hbc/direct/vbox/server"]
 margin_top = 136.0
-margin_right = 623.0
+margin_right = 932.0
 margin_bottom = 176.0
 size_flags_horizontal = 7
 size_flags_vertical = 2
@@ -348,11 +358,15 @@ align = 1
 
 [node name="start" type="Button" parent="vbc/hbc/direct/vbox/server"]
 margin_top = 196.0
-margin_right = 623.0
+margin_right = 932.0
 margin_bottom = 224.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 text = "Start Server"
+
+[node name="3rd-frame" parent="vbc/hbc/direct" instance=ExtResource( 5 )]
+margin_right = 933.0
+margin_bottom = 513.0
 
 [node name="connecting" type="PopupPanel" parent="."]
 anchor_left = 0.5

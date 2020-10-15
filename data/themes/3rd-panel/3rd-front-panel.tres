@@ -2,7 +2,9 @@
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.223529, 0.631373, 0.682353, 1 )
-border_color = Color( 1, 1, 1, 0.568627 )
+border_width_left = 1
+border_width_right = 1
+border_color = Color( 0, 0, 0, 1 )
 
 [resource]
 Panel/styles/panel = SubResource( 1 )

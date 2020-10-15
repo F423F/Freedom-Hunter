@@ -1,0 +1,146 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://data/themes/3rd-panel/3rd-front-panel.tres" type="Theme" id=1]
+[ext_resource path="res://data/themes/3rd-panel/ccap.png" type="Texture" id=2]
+[ext_resource path="res://data/themes/3rd-panel/3rd-triangles-column.tres" type="Theme" id=3]
+
+[node name="3rd-frame" type="Control"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 154.0
+margin_bottom = 63.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="column-left" type="Control" parent="."]
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TriangleBg" type="Panel" parent="column-left"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = 6.0
+margin_bottom = 3.8147e-06
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="triangleText" type="Panel" parent="column-left/TriangleBg"]
+modulate = Color( 0.968627, 0.968627, 1, 1 )
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 6.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="column-right" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_bottom = 3.05176e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TriangleBg" type="Panel" parent="column-right"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 8.0
+rect_scale = Vector2( -1, 1 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="triangleText" type="Panel" parent="column-right/TriangleBg"]
+modulate = Color( 0.968627, 0.968627, 1, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = -1.0
+margin_bottom = -1.52588e-05
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CornerCapTR" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -17.0
+margin_top = -5.0
+margin_right = 5.0
+margin_bottom = 22.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+flip_h = true
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CornerCapBR" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -17.0
+margin_top = -22.0
+margin_right = 5.0
+margin_bottom = 5.00003
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CornerCapTL" type="TextureRect" parent="."]
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 17.0
+margin_bottom = 22.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CornerCapBL" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -5.0
+margin_top = -22.0
+margin_right = 17.0
+margin_bottom = 5.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

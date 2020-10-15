@@ -2,7 +2,8 @@
 
 [ext_resource path="res://data/themes/ez-menu/ez_menu.tres" type="Theme" id=1]
 [ext_resource path="res://src/inventory.gd" type="Script" id=2]
-[ext_resource path="res://data/themes/3rd-panel/3rd-panel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://data/themes/3rd-panel/3rd-panel-background.tscn" type="PackedScene" id=3]
+
 
 [node name="inventory" type="Panel"]
 margin_left = 10.0
