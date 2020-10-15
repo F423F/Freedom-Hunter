@@ -34,12 +34,12 @@ tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1.5 ),
+"times": PoolRealArray( -0.5, 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 660, -100 ), Vector2( 660, 500 ), Vector2( 660, 500 ) ]
+"values": [ Vector2( 660, 500 ), Vector2( 660, -100 ), Vector2( 660, 500 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -72,6 +72,9 @@ anchor_bottom = 1.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="onscreen" parent="." instance=ExtResource( 2 )]
 
@@ -82,12 +85,17 @@ custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="view" type="Control" parent="margin"]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1900.0
 margin_bottom = 1060.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 3 )
 
 [node name="items" parent="margin/view" instance=ExtResource( 4 )]
@@ -123,15 +131,21 @@ size_flags_vertical = 2
 text = "E"
 
 [node name="notification" type="Panel" parent="margin/view"]
-editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 660.0
-margin_top = 500.0
-margin_right = 1260.0
-margin_bottom = 600.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -50.0
+margin_right = 300.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 600, 100 )
 size_flags_horizontal = 2
 size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="text" type="Label" parent="margin/view/notification"]
 anchor_right = 1.0
@@ -151,7 +165,6 @@ stream = ExtResource( 8 )
 volume_db = -20.0
 
 [node name="players_list" type="VBoxContainer" parent="margin/view"]
-editor/display_folded = true
 visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5

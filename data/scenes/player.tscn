@@ -5018,4 +5018,3 @@ shape = SubResource( 14 )
 
 [node name="name" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0 )
-

@@ -8,7 +8,6 @@
 [node name="world" parent="." instance=ExtResource( 1 )]
 
 [node name="yaw" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.5, 0 )
 
 [node name="pitch" type="Spatial" parent="yaw"]

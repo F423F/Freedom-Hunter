@@ -14,12 +14,19 @@ anchor_bottom = 1.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="analog" type="TextureRect" parent="."]
-margin_left = 1620.0
-margin_top = 640.0
-margin_right = 1820.0
-margin_bottom = 840.0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -224.0
+margin_top = -100.0
+margin_right = -23.9999
+margin_bottom = 100.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 texture = ExtResource( 2 )
@@ -36,12 +43,17 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="buttons" type="Control" parent="."]
-margin_left = 100.0
-margin_top = 600.0
-margin_right = 350.0
-margin_bottom = 850.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 24.0
+margin_top = -125.0
+margin_right = 274.0
+margin_bottom = 125.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="A" type="TouchScreenButton" parent="buttons"]
 position = Vector2( 85, 170 )
@@ -58,7 +70,6 @@ normal = ExtResource( 6 )
 [node name="Y" type="TouchScreenButton" parent="buttons"]
 position = Vector2( 170, 85 )
 normal = ExtResource( 7 )
-
 [connection signal="pressed" from="buttons/A" to="." method="_on_A_pressed"]
 [connection signal="released" from="buttons/A" to="." method="_on_A_released"]
 [connection signal="pressed" from="buttons/B" to="." method="_on_B_pressed"]

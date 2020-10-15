@@ -4,15 +4,15 @@ extends Control
 const CONF_FILE = "user://multiplayer.conf"
 
 onready var config = ConfigFile.new()
-onready var lobby_grid = get_node("lobby/scroll/grid")
-onready var client_port = get_node("direct/vbox/client/input/port")
-onready var client_host = get_node("direct/vbox/client/input/host")
-onready var server_port = get_node("direct/vbox/server/input/port")
-onready var server_host = get_node("direct/vbox/server/input/host")
-onready var username_node = get_node("header/vbox/input/username")
-onready var server_start = get_node("direct/vbox/server/start")
-onready var client_connect = get_node("direct/vbox/client/connect")
-onready var announce_node = get_node("direct/vbox/server/announce")
+onready var lobby_grid = get_node("vbc/hbc/lobby/scroll/grid")
+onready var client_port = get_node("vbc/hbc/direct/vbox/client/input/port")
+onready var client_host = get_node("vbc/hbc/direct/vbox/client/input/host")
+onready var server_port = get_node("vbc/hbc/direct/vbox/server/input/port")
+onready var server_host = get_node("vbc/hbc/direct/vbox/server/input/host")
+onready var username_node = get_node("vbc/header/vbox/input/username")
+onready var server_start = get_node("vbc/hbc/direct/vbox/server/start")
+onready var client_connect = get_node("vbc/hbc/direct/vbox/client/connect")
+onready var announce_node = get_node("vbc/hbc/direct/vbox/server/announce")
 
 
 func show():
@@ -23,13 +23,13 @@ func show():
 	request_servers_list()
 	server_validate_input()
 	client_validate_input()
-	$lobby/refresh.start()
+	$vbc/hbc/lobby/refresh.start()
 
 
 func hide():
 	.hide()
 	OS.set_window_title("Freedom Hunter")
-	$lobby/refresh.stop()
+	$vbc/hbc/lobby/refresh.stop()
 
 
 func report_error(message):
@@ -96,22 +96,22 @@ func client_validate_input(signal_args=null):
 
 func request_servers_list():  # called every 10 seconds by refresh timer
 	networking.lobby.servers_list(self, "_on_servers_list_received")
-	if $lobby/refresh.is_stopped():
-		$lobby/refresh.start()
+	if $vbc/hbc/lobby/refresh.is_stopped():
+		$vbc/hbc/lobby/refresh.start()
 
 
 func _on_servers_list_received(result, response_code, headers, body):
 	networking.lobby.http.disconnect("request_completed", self, "_on_servers_list_received")
 	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
 		report_error("Can't retrieve servers list")
-		$lobby/refresh.stop()
+		$vbc/hbc/lobby/refresh.stop()
 	else:
 		var servers = str2var(body.get_string_from_utf8())
 		if typeof(servers) == TYPE_ARRAY:
 			update_servers_list(servers)
 		else:
 			report_error("Lobby server returned garbage.")
-			$lobby/refresh.stop()
+			$vbc/hbc/lobby/refresh.stop()
 
 
 func update_servers_list(servers):
@@ -207,7 +207,7 @@ func _on_connect_pressed():
 	for child in get_children():
 		child.hide()
 	$connecting.popup_centered()
-	$lobby/refresh.stop()
+	$vbc/hbc/lobby/refresh.stop()
 	get_tree().connect("connection_failed", self, "_connection_failed", [ip, port])
 	get_tree().connect("connected_to_server", self, "_connected_to_server")
 
@@ -216,7 +216,7 @@ func _connection_failed(ip, port):
 	for child in get_children():
 		child.show()
 	$connecting.hide()
-	$lobby/refresh.start()
+	$vbc/hbc/lobby/refresh.start()
 	report_error("Connection to %s:%s failed" % [ip, port])
 	get_tree().disconnect("connection_failed", self, "_connection_failed")
 

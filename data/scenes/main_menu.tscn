@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://data/themes/main_menu/main.theme" type="Theme" id=1]
+[ext_resource path="res://data/themes/titlescreen_menu/titlescreen_menu.theme" type="Theme" id=1]
 [ext_resource path="res://src/main_menu.gd" type="Script" id=2]
-[ext_resource path="res://data/images/main_menu/background/background.png" type="Texture" id=3]
-[ext_resource path="res://data/images/main_menu/background/bottom_bar.png" type="Texture" id=4]
-[ext_resource path="res://data/images/main_menu/background/top_bar.png" type="Texture" id=5]
+[ext_resource path="res://data/images/main_menu/background/bg_ts-test.png" type="Texture" id=3]
+[ext_resource path="res://data/images/main_menu/background/mainmenu-greenStrpTile.png" type="Texture" id=4]
 [ext_resource path="res://data/scenes/multiplayer/lobby.tscn" type="PackedScene" id=6]
 [ext_resource path="res://data/scenes/credits.tscn" type="PackedScene" id=7]
 
@@ -12,70 +11,49 @@
 resource_name = "background"
 length = 10.0
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("background:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 10 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 100 ), Vector2( -960, 100 ) ]
-}
 
 [node name="main_menu" type="Control"]
-margin_right = 1920.0
-margin_bottom = 1080.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-theme = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 100.0
-margin_right = 961.0
-margin_bottom = -100.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 3 )
 expand = true
-
-[node name="bottom" type="TextureRect" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -100.0
-margin_right = -1.0
-margin_bottom = -1.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-texture = ExtResource( 4 )
-expand = true
-
-[node name="top" type="TextureRect" parent="."]
-anchor_right = 1.0
-margin_bottom = 100.0
-texture = ExtResource( 5 )
-expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="mode" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 500.0
-margin_top = 200.0
-margin_right = -500.0
-margin_bottom = -200.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = -124.0
+margin_right = 168.0
+margin_bottom = 124.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource( 1 )
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="singleplayer" type="Button" parent="mode"]
-margin_right = 920.0
-margin_bottom = 167.0
+margin_right = 336.0
+margin_bottom = 59.0
 focus_neighbour_top = NodePath("../credits")
 focus_neighbour_bottom = NodePath("../multiplayer")
 size_flags_horizontal = 3
@@ -83,9 +61,9 @@ size_flags_vertical = 3
 text = "Singleplayer"
 
 [node name="multiplayer" type="Button" parent="mode"]
-margin_top = 171.0
-margin_right = 920.0
-margin_bottom = 338.0
+margin_top = 63.0
+margin_right = 336.0
+margin_bottom = 122.0
 focus_neighbour_top = NodePath("../singleplayer")
 focus_neighbour_bottom = NodePath("../credits")
 size_flags_horizontal = 3
@@ -93,9 +71,9 @@ size_flags_vertical = 3
 text = "Multiplayer"
 
 [node name="options" type="Button" parent="mode"]
-margin_top = 342.0
-margin_right = 920.0
-margin_bottom = 509.0
+margin_top = 126.0
+margin_right = 336.0
+margin_bottom = 185.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 disabled = true
@@ -103,9 +81,9 @@ enabled_focus_mode = 0
 text = "Options"
 
 [node name="credits" type="Button" parent="mode"]
-margin_top = 513.0
-margin_right = 920.0
-margin_bottom = 680.0
+margin_top = 189.0
+margin_right = 336.0
+margin_bottom = 248.0
 focus_neighbour_top = NodePath("../multiplayer")
 focus_neighbour_bottom = NodePath("../singleplayer")
 size_flags_horizontal = 3
@@ -117,23 +95,44 @@ autoplay = "background"
 anims/background = SubResource( 1 )
 
 [node name="multiplayer" parent="." instance=ExtResource( 6 )]
-editor/display_folded = true
 visible = false
-margin_right = -1.0
-margin_bottom = -1.0
 
 [node name="credits" parent="." instance=ExtResource( 7 )]
 visible = false
 
 [node name="back" type="Button" parent="."]
 visible = false
-margin_left = 100.0
-margin_top = 100.0
-margin_right = 300.0
-margin_bottom = 200.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 124.0
+margin_bottom = 74.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 text = "Back"
+
+[node name="top" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+margin_bottom = 70.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bottom" type="TextureRect" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="mode/singleplayer" to="." method="_on_singleplayer_pressed"]
 [connection signal="pressed" from="mode/multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="mode/credits" to="." method="_on_credits_pressed"]
