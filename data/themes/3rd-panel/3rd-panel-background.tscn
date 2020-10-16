@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://data/themes/3rd-panel/3rd-back-panel.tres" type="Theme" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -27,8 +28,8 @@ VBoxContainer/constants/separation = 1
 [node name="3rd-panel" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1765.0
-margin_bottom = -1016.0
+margin_right = -1550.0
+margin_bottom = -717.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 2 )
@@ -39,11 +40,22 @@ __meta__ = {
 [node name="3rd-background" type="Panel" parent="."]
 margin_left = 1.0
 margin_top = 1.0
-margin_right = 154.0
-margin_bottom = 63.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_right = 369.0
+margin_bottom = 362.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
 theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TEST CONTENT" type="TextureRect" parent="3rd-background"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
