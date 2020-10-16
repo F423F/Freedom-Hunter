@@ -1,74 +1,92 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://data/themes/ez-menu/ez_menu.tres" type="Theme" id=1]
 [ext_resource path="res://src/inventory.gd" type="Script" id=2]
-[ext_resource path="res://data/themes/3rd-panel/3rd-panel-background.tscn" type="PackedScene" id=3]
-
 
 [node name="inventory" type="Panel"]
-margin_left = 10.0
-margin_top = 200.0
-margin_right = 550.0
-margin_bottom = 790.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+margin_right = 507.0
+margin_bottom = 420.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="sort" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="3rd-panel" parent="." instance=ExtResource( 3 )]
-margin_right = 0.0
-margin_bottom = 0.0
-
-[node name="sort" type="Container" parent="."]
-anchor_right = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 50.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-
 [node name="Label" type="Label" parent="sort"]
-margin_right = 90.0
-margin_bottom = 30.0
-size_flags_horizontal = 2
-size_flags_vertical = 0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -11.0
+margin_right = -135.0
+margin_bottom = 11.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Sort by:"
 align = 2
 valign = 1
 
 [node name="OptionButton" type="OptionButton" parent="sort"]
-margin_left = 100.0
-margin_right = 411.0
-margin_bottom = 30.0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -130.0
+margin_top = 2.0
+margin_right = -44.0
+margin_bottom = -2.0
 focus_mode = 0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 toggle_mode = false
 enabled_focus_mode = 0
 text = "Name"
 items = [ "Name", null, false, 0, null, "Quantity", null, false, 1, null, "Rarety", null, false, 2, null ]
 selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="sort"]
-margin_left = 420.0
-margin_right = 500.0
-margin_bottom = 30.0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -14.0
+margin_right = -2.0
+margin_bottom = 14.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 text = "Sort"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="items" type="GridContainer" parent="."]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 70.0
-margin_right = 520.0
-margin_bottom = 20.0
+margin_left = 10.0
+margin_top = 35.0
+margin_right = -10.0
+margin_bottom = -10.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 custom_constants/vseparation = 0
 custom_constants/hseparation = 0
 columns = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}

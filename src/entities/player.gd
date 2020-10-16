@@ -60,7 +60,7 @@ func _ready():
 	var meat      = Meat.new("Meat",           preload("res://data/images/items/meat.png"),      5,  self, 25)
 
 	inventory.set_items([potion, whetstone, meat], 30)
-	inventory.set_position(Vector2(1370, 200))
+	inventory.set_position(Vector2(20, 20)) #testing
 	inventory.set_name("player_inventory")
 
 	resume_player()
